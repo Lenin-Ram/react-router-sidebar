@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import './App.css'
+import Estadistica from './components/estadistica/estadistica';
+import Formulario from "./components/formulario/formulario";
 import Sidebar from './components/Sidebar/Sidebar'
 
 export const sideBarObject = {
@@ -9,34 +11,15 @@ export const sideBarObject = {
   routeTree: [
     {
       children: [
-        { name: 'Progress', route: '/dashboard/' },
-        { name: 'Contributions', route: '/dashboard/r' },
-        { name: 'Activity', route: '/dashboard/o' },
+        { name: 'Inicio', route: '/dashboard/r' },
+        { name: 'Estadistica', route: '/dashboard/o' },
+        { name: 'Formulario', route: '/dashboard/f' },
       ],
       icon: 'home',
-      name: 'Project Overview',
+      name: 'Menu',
     },
-    {
-      children: [
-        { name: 'Frytol', route: '/lo' },
-        { name: 'Eno Serwaa', route: '/t' },
-        { name: 'Pepsi', route: '/v' },
-        { name: 'Soyabean', route: '/u' },
-      ],
-      icon: 'burn',
-      name: 'Oil',
-    },
-    {
-      children: [
-        { name: 'Sardine', route: '/g' },
-        { name: 'DHall Beast', route: '/j' },
-        { name: 'Last Killer', route: '/d' },
-        { name: 'Brilla', route: '/l' },
-        { name: 'Ant Brain', route: '/e' },
-      ],
-      icon: 'brain',
-      name: 'Minds',
-    },
+   
+    
   ],
 }
 
@@ -69,11 +52,15 @@ function Dashboard({ match }) {
         ></Sidebar>
       </div>
       <Switch>
-        <Route path={match.url + '/r'}>
-          <RouteDemo>R</RouteDemo>
+        <Route path={match.url + '/o'}
+        // component={Estadistica}
+        >
+          
         </Route>
-        <Route path={match.url + '/o'}>
-          <RouteDemo>O</RouteDemo>
+
+        <Route path={match.url + '/f'}
+        component={Formulario}>
+ 
         </Route>
         <Route path={match.url + '/'}>
           <RouteDemo>Home</RouteDemo>
